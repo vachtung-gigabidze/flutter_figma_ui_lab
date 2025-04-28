@@ -1,0 +1,68 @@
+import 'package:flutter_figma_template/crm_dashboard/models/product_item.dart';
+
+final mockProductItems = <ProductItem>[
+  ProductItem(
+    customerName: "Jane Cooper",
+    company: "Microsoft",
+    phoneNumber: "(225) 555-0118",
+    email: "jane@mail.com",
+    country: "Russia",
+    status: StatusProduct.active,
+  ),
+  ProductItem(
+    customerName: "Jane Cooper",
+    company: "Microsoft",
+    phoneNumber: "(225) 555-0118",
+    email: "jane@mail.com",
+    country: "Russia",
+    status: StatusProduct.inactive,
+  ),
+  ProductItem(
+    customerName: "Jane Cooper",
+    company: "Microsoft",
+    phoneNumber: "(225) 555-0118",
+    email: "jane@mail.com",
+    country: "Russia",
+    status: StatusProduct.inactive,
+  ),
+  ProductItem(
+    customerName: "Jane Cooper",
+    company: "Microsoft",
+    phoneNumber: "(225) 555-0118",
+    email: "jane@mail.com",
+    country: "Russia",
+    status: StatusProduct.inactive,
+  ),
+  ProductItem(
+    customerName: "Jane Cooper",
+    company: "Microsoft",
+    phoneNumber: "(225) 555-0118",
+    email: "jane@mail.com",
+    country: "Russia",
+    status: StatusProduct.active,
+  ),
+  ProductItem(
+    customerName: "Jane Cooper",
+    company: "Microsoft",
+    phoneNumber: "(225) 555-0118",
+    email: "jane@mail.com",
+    country: "Russia",
+    status: StatusProduct.active,
+  ),
+  ProductItem(
+    customerName: "Jane Cooper",
+    company: "Microsoft",
+    phoneNumber: "(225) 555-0118",
+    email: "jane@mail.com",
+    country: "Russia",
+    status: StatusProduct.active,
+  ),
+  ProductItem(
+    customerName: "Jane Cooper",
+    company: "Microsoft",
+    phoneNumber: "(225) 555-0118",
+    email: "jane@mail.com",
+    country: "Russia",
+    status: StatusProduct.active,
+  ),
+];
