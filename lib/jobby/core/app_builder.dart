@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_figma_template/jobby/pages/login/page.dart';
+import 'package:flutter_figma_template/jobby/pages/pages.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class JobbyAppBuilder extends StatelessWidget {
@@ -33,6 +33,6 @@ class HomeApp extends StatefulWidget {
 class _HomeAppState extends State<HomeApp> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: LoginByPhonePage()); // OnboardingPage());
+    return ConfirmPage(); // LoginByPhonePage(); // OnboardingPage());
   }
 }
