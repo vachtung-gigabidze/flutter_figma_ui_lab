@@ -1,17 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_figma_template/jobby/data/profile_card.dart';
+import 'package:flutter_figma_template/jobby/models/profile_card.dart';
 import 'package:flutter_svg/svg.dart';
-
-class ProfileCard {
-  final String imageName;
-  final String title;
-  final String description;
-  ProfileCard({
-    required this.imageName,
-    required this.title,
-    required this.description,
-  });
-}
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -31,48 +22,58 @@ class _ProfilePageState extends State<ProfilePage> {
     super.dispose();
   }
 
-  final profileCards = <ProfileCard>[
-    ProfileCard(
-      imageName: "account",
-      title: "Личные данные",
-      description: "Информация о вас",
-    ),
-    ProfileCard(
-      imageName: "folder",
-      title: "Документы",
-      description: "Нужно заполнить",
-    ),
-    ProfileCard(
-      imageName: "payment",
-      title: "Платежные реквизиты",
-      description: "Не заполнены",
-    ),
-    ProfileCard(
-      imageName: "location",
-      title: "Любимая локация",
-      description: "Россия, Москва, парк Зарядье",
-    ),
-    ProfileCard(
-      imageName: "heart",
-      title: "Мои подписки",
-      description: "Интересные компании",
-    ),
-    ProfileCard(
-      imageName: "house",
-      title: "Моя работа",
-      description: "История работы",
-    ),
-    ProfileCard(
-      imageName: "chat",
-      title: "Сообщения",
-      description: "Переписка с работодателями",
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            label: '',
+            icon: SizedBox(
+              height: 14,
+              width: 27,
+              child: SvgPicture.asset(
+                'assets/jobby/burger.svg',
+                fit: BoxFit.scaleDown,
+                color: Colors.black45,
+              ),
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: '',
+            icon: SvgPicture.asset(
+              'assets/jobby/search.svg',
+              fit: BoxFit.scaleDown,
+              color: Colors.black45,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: '',
+            icon: SvgPicture.asset(
+              'assets/jobby/house.svg',
+              fit: BoxFit.scaleDown,
+              color: Colors.black45,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: '',
+            icon: SvgPicture.asset(
+              'assets/jobby/message.svg',
+              fit: BoxFit.scaleDown,
+              color: Colors.black45,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: '',
+            icon: SvgPicture.asset(
+              'assets/jobby/account.svg',
+              fit: BoxFit.scaleDown,
+              color: Colors.black45,
+            ),
+          ),
+        ],
+      ),
       body: Center(
         child: SizedBox(
           width: 400,
