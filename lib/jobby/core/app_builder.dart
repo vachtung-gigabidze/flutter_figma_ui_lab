@@ -33,6 +33,6 @@ class HomeApp extends StatefulWidget {
 class _HomeAppState extends State<HomeApp> {
   @override
   Widget build(BuildContext context) {
-    return MeetingPage(); //ConfirmPage(); // LoginByPhonePage(); // OnboardingPage());
+    return ProfilePage(); //MeetingPage(); //ConfirmPage(); // LoginByPhonePage(); // OnboardingPage());
   }
 }
