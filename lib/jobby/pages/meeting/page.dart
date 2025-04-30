@@ -8,51 +8,26 @@ class MeetingPage extends StatefulWidget {
 }
 
 class _MeetingPageState extends State<MeetingPage> {
-  late List<TextEditingController> _otpControllers;
-  String _otp = '';
+  late TextEditingController _nameControllers;
+  late TextEditingController _cityControllers;
+
   @override
   void initState() {
-    _otpControllers = [
-      TextEditingController(),
-      TextEditingController(),
-      TextEditingController(),
-      TextEditingController(),
-    ];
+    _nameControllers = TextEditingController();
+    _cityControllers = TextEditingController();
     super.initState();
   }
 
   @override
   void dispose() {
-    for (var c in _otpControllers) {
-      c.dispose();
-    }
+    _nameControllers.dispose();
+    _cityControllers.dispose();
     super.dispose();
-  }
-
-  otpChanged() {
-    for (var c in _otpControllers) {
-      _otp = _otp + c.text;
-    }
-    if (_otp.length == 4) {
-      //TODO: next page
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        title: Text(
-          "Подтверждение",
-          style: TextStyle(
-            fontSize: 20,
-            color: Color(0xff020105),
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
       body: Center(
         child: SizedBox(
           width: 400,
@@ -60,66 +35,93 @@ class _MeetingPageState extends State<MeetingPage> {
             padding: const EdgeInsets.all(24.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 94),
                 Text(
-                  "Введите код из смс.",
+                  "Давайте знакомиться",
                   style: TextStyle(
-                    fontSize: 14,
-                    color: Color(0xff6B4EFF),
-                    fontWeight: FontWeight.w300,
+                    fontSize: 18,
+                    color: Color(0xff020105),
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                // SizedBox(height: 16),
+                SizedBox(height: 24),
                 Text(
-                  "Он был отправлен на номер",
+                  "Как вас зовут?",
                   style: TextStyle(
                     fontSize: 14,
-                    color: Color(0xff353535),
+                    // color: Color(0xff6B4EFF),
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(height: 21),
-                Text(
-                  "+7 999 999 99 99",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color(0xff353535),
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                SizedBox(height: 20),
-
-                SizedBox(height: 22),
+                SizedBox(height: 10),
                 SizedBox(
-                  width: 180,
-                  child: Text(
-                    "Запросить код еще раз через 58 секунд",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color(0xff353535),
-                      fontWeight: FontWeight.w100,
+                  width: 330,
+                  height: 50,
+                  child: TextField(
+                    controller: _nameControllers,
+                    decoration: InputDecoration(
+                      hintText: "Имя",
+                      hintStyle: TextStyle(
+                        fontSize: 12,
+                        color: Color(0xff777777),
+                        fontWeight: FontWeight.w100,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Colors.black,
+                          width: 2,
+                        ),
+                      ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xff777777),
+                          width: 0.5,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                      border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
-                SizedBox(height: 41),
-                FilledButton(
-                  onPressed: () {
-                    //TODO: send otp
-                  },
-
-                  style: FilledButton.styleFrom(
-                    fixedSize: Size(327, 48),
-                    backgroundColor: Color(0xff6B4EFF),
+                SizedBox(height: 16),
+                Text(
+                  "Город",
+                  style: TextStyle(
+                    fontSize: 14,
+                    // color: Color(0xff6B4EFF),
+                    fontWeight: FontWeight.w400,
                   ),
-                  child: Text(
-                    "Отправить код еще раз",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
+                ),
+                SizedBox(height: 10),
+                SizedBox(
+                  width: 330,
+                  height: 50,
+                  child: TextField(
+                    controller: _nameControllers,
+
+                    decoration: InputDecoration(
+                      suffixIcon: Icon(Icons.location_on),
+                      hintText: "Начните вводить адрес",
+                      hintStyle: TextStyle(
+                        fontSize: 12,
+                        color: Color(0xff777777),
+                        fontWeight: FontWeight.w100,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Colors.black,
+                          width: 2,
+                        ),
+                      ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xff777777),
+                          width: 0.5,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                      border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
