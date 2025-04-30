@@ -1,4 +1,17 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+class ProfileCard {
+  final String imageName;
+  final String title;
+  final String description;
+  ProfileCard({
+    required this.imageName,
+    required this.title,
+    required this.description,
+  });
+}
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -18,14 +31,53 @@ class _ProfilePageState extends State<ProfilePage> {
     super.dispose();
   }
 
+  final profileCards = <ProfileCard>[
+    ProfileCard(
+      imageName: "account",
+      title: "Личные данные",
+      description: "Информация о вас",
+    ),
+    ProfileCard(
+      imageName: "folder",
+      title: "Документы",
+      description: "Нужно заполнить",
+    ),
+    ProfileCard(
+      imageName: "payment",
+      title: "Платежные реквизиты",
+      description: "Не заполнены",
+    ),
+    ProfileCard(
+      imageName: "location",
+      title: "Любимая локация",
+      description: "Россия, Москва, парк Зарядье",
+    ),
+    ProfileCard(
+      imageName: "heart",
+      title: "Мои подписки",
+      description: "Интересные компании",
+    ),
+    ProfileCard(
+      imageName: "house",
+      title: "Моя работа",
+      description: "История работы",
+    ),
+    ProfileCard(
+      imageName: "chat",
+      title: "Сообщения",
+      description: "Переписка с работодателями",
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: SizedBox(
           width: 400,
           child: Padding(
-            padding: const EdgeInsets.all(24.0),
+            padding: const EdgeInsets.all(25.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,27 +99,116 @@ class _ProfilePageState extends State<ProfilePage> {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(height: 10),
-                Container(
-                  height: 134,
-                  width: 160,
-                  decoration: BoxDecoration(
-                    color: Color(0xffD9D9D9),
-                    borderRadius: BorderRadius.circular(10),
+                SizedBox(height: 35),
+                // ProfileCard(),
+                Expanded(
+                  child: GridView.count(
+                    crossAxisCount: 2,
+
+                    // Generate 100 widgets that display their index in the list.
+                    children: List.generate(profileCards.length, (index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(2.5),
+                        child: ProfileCardWidget(
+                          profileCard: profileCards[index],
+                        ),
+                      );
+                    }),
                   ),
-                  child: Column(
-                    children: [
-                      Icon(
-                        Icons.manage_accounts_outlined,
-                        color: Color(0xff6B4EFF),
-                        size: 24,
-                      ),
-                    ],
+                ),
+                FilledButton(
+                  onPressed: () {
+                    //TODO: send otp
+                  },
+
+                  style: FilledButton.styleFrom(
+                    fixedSize: Size(327, 48),
+                    backgroundColor: Color(0xff6B4EFF),
+                  ),
+                  child: Text(
+                    "Выйти",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class ProfileCardWidget extends StatelessWidget {
+  const ProfileCardWidget({super.key, required this.profileCard});
+  final ProfileCard profileCard;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 134,
+      width: 160,
+      decoration: BoxDecoration(
+        color: Color(0xffF6F7FF),
+        borderRadius: BorderRadius.circular(11),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(
+          left: 5.0,
+          top: 14,
+          right: 12,
+          // bottom: 26,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SizedBox(
+              height: 24,
+              width: 24,
+              child: SvgPicture.asset(
+                'assets/jobby/${profileCard.imageName}.svg',
+                fit: BoxFit.scaleDown,
+                color: Color(0xff6B4EFF),
+              ),
+            ),
+            SizedBox(height: 38),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 111,
+                      child: Text(
+                        profileCard.title,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 13,
+                      color: Colors.black12,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: 111,
+                  child: Text(
+                    profileCard.description,
+                    style: TextStyle(fontSize: 10, color: Colors.black12),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
