@@ -12,27 +12,27 @@ class JobbyAppBuilder extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Jobby",
       theme: ThemeData(
-        colorScheme: ColorScheme.light(
-          primary: Color(0xff5932EA),
-          surface: Color(0x209197B3),
-        ),
+        // colorScheme: ColorScheme.light(
+        //   primary: Color(0xff5932EA),
+        //   surface: Color(0x209197B3),
+        // ),
         textTheme: GoogleFonts.interTextTheme(textTheme),
       ),
-      home: HomeApp(),
+      home: ProfilePage(),
     );
   }
 }
 
-class HomeApp extends StatefulWidget {
-  const HomeApp({super.key});
+// class HomeApp extends StatefulWidget {
+//   const HomeApp({super.key});
 
-  @override
-  State<HomeApp> createState() => _HomeAppState();
-}
+//   @override
+//   State<HomeApp> createState() => _HomeAppState();
+// }
 
-class _HomeAppState extends State<HomeApp> {
-  @override
-  Widget build(BuildContext context) {
-    return ProfilePage(); //MeetingPage(); //ConfirmPage(); // LoginByPhonePage(); // OnboardingPage());
-  }
-}
+// class _HomeAppState extends State<HomeApp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return ProfilePage(); //MeetingPage(); //ConfirmPage(); // LoginByPhonePage(); // OnboardingPage());
+//   }
+// }

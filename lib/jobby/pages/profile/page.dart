@@ -27,17 +27,18 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: 1,
+        selectedItemColor: Colors.amber[800],
+        // backgroundColor: Colors.black12,
         items: [
           BottomNavigationBarItem(
             label: '',
-            icon: SizedBox(
-              height: 14,
-              width: 27,
-              child: SvgPicture.asset(
-                'assets/jobby/burger.svg',
-                fit: BoxFit.scaleDown,
-                color: Colors.black45,
-              ),
+            backgroundColor: Color(0xffF9F4FF),
+            icon: SvgPicture.asset(
+              'assets/jobby/burger.svg',
+              fit: BoxFit.scaleDown,
+              color: Colors.black45,
             ),
           ),
           BottomNavigationBarItem(
