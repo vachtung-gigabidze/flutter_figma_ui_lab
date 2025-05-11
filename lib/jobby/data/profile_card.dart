@@ -37,3 +37,55 @@ final profileCards = <ProfileCard>[
     description: "Переписка с работодателями",
   ),
 ];
+final favoriteCards = <ProfileCard>[
+  ProfileCard(
+    imageName: "star",
+    title: "Здесь будет что-то потом",
+    description: "",
+  ),
+  ProfileCard(
+    imageName: "star",
+    title: "Здесь будет что-то потом",
+    description: "",
+  ),
+  ProfileCard(
+    imageName: "star",
+    title: "Здесь будет что-то потом",
+    description: "",
+  ),
+  ProfileCard(
+    imageName: "star",
+    title: "Здесь будет что-то потом",
+    description: "",
+  ),
+  ProfileCard(
+    imageName: "star",
+    title: "Здесь будет что-то потом",
+    description: "",
+  ),
+  ProfileCard(
+    imageName: "star",
+    title: "Здесь будет что-то потом",
+    description: "",
+  ),
+  ProfileCard(
+    imageName: "star",
+    title: "Здесь будет что-то потом",
+    description: "",
+  ),
+  ProfileCard(
+    imageName: "star",
+    title: "Здесь будет что-то потом",
+    description: "",
+  ),
+  ProfileCard(
+    imageName: "star",
+    title: "Здесь будет что-то потом",
+    description: "",
+  ),
+  ProfileCard(
+    imageName: "star",
+    title: "Здесь будет что-то потом",
+    description: "",
+  ),
+];

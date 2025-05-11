@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_figma_template/jobby/pages/favorite/page.dart';
-import 'package:flutter_figma_template/jobby/pages/pages.dart';
+import 'package:flutter_figma_template/weather/ff_you_awesome/index.dart';
+import 'package:flutter_figma_template/weather/pages/home/page.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
-class JobbyAppBuilder extends StatelessWidget {
-  const JobbyAppBuilder({super.key});
+class WeatherAppBuilder extends StatelessWidget {
+  const WeatherAppBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Jobby",
+      title: "Weather",
       theme: ThemeData(
         // colorScheme: ColorScheme.light(
         //   primary: Color(0xff5932EA),
@@ -19,7 +20,10 @@ class JobbyAppBuilder extends StatelessWidget {
         // ),
         textTheme: GoogleFonts.interTextTheme(textTheme),
       ),
-      home: FavoritePage(), //ProfilePage(),
+      home: HomePage(),
+      // YouAwesomePage(
+      //   bloc: YouAwesomeBloc(provider: YouAwesomeProvider()),
+      // ), //ProfilePage(),
     );
   }
 }

@@ -2,17 +2,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_figma_template/jobby/data/profile_card.dart';
 import 'package:flutter_figma_template/jobby/widgets/profile_card.dart';
-
+// import 'package:flutter_figma_template/jobby/models/profile_card.dart';
+// import 'package:flutter_figma_template/jobby/pages/profile%20copy/page.dart';
 import 'package:flutter_svg/svg.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class FavoritePage extends StatefulWidget {
+  const FavoritePage({super.key});
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
+  State<FavoritePage> createState() => _FavoritePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _FavoritePageState extends State<FavoritePage> {
   @override
   void initState() {
     super.initState();
@@ -81,63 +82,16 @@ class _ProfilePageState extends State<ProfilePage> {
           width: 400,
           child: Padding(
             padding: const EdgeInsets.all(25.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Имя не указано",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Color(0xff020105),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 24),
-                Text(
-                  "+ 7 999 999 99 99",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Color(0xff6B4EFF),
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                SizedBox(height: 35),
-                // ProfileCard(),
-                Expanded(
-                  child: GridView.count(
-                    crossAxisCount: 2,
+            child: GridView.count(
+              crossAxisCount: 2,
 
-                    // Generate 100 widgets that display their index in the list.
-                    children: List.generate(profileCards.length, (index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(2.5),
-                        child: ProfileCardWidget(
-                          profileCard: profileCards[index],
-                        ),
-                      );
-                    }),
-                  ),
-                ),
-                FilledButton(
-                  onPressed: () {
-                    //TODO: send otp
-                  },
-
-                  style: FilledButton.styleFrom(
-                    fixedSize: Size(327, 48),
-                    backgroundColor: Color(0xff6B4EFF),
-                  ),
-                  child: Text(
-                    "Выйти",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
+              // Generate 100 widgets that display their index in the list.
+              children: List.generate(favoriteCards.length, (index) {
+                return Padding(
+                  padding: const EdgeInsets.all(2.5),
+                  child: ProfileCardWidget(profileCard: favoriteCards[index]),
+                );
+              }),
             ),
           ),
         ),
