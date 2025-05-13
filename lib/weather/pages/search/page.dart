@@ -37,6 +37,24 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Weather",
+          style: TextStyle(fontSize: 28, color: Colors.white),
+        ),
+        backgroundColor: Color(0xff2E335A),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Image.asset(
+              'assets/weather/points.png',
+              height: 33,
+              width: 33,
+              fit: BoxFit.scaleDown,
+            ),
+          ),
+        ],
+      ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
