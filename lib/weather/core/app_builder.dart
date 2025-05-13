@@ -20,7 +20,7 @@ class WeatherAppBuilder extends StatelessWidget {
         // ),
         textTheme: GoogleFonts.interTextTheme(textTheme),
       ),
-      home: HomePage(),
+      home: SizedBox(width: 400, child: HomePage()),
       // YouAwesomePage(
       //   bloc: YouAwesomeBloc(provider: YouAwesomeProvider()),
       // ), //ProfilePage(),
