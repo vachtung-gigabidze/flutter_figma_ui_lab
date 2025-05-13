@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_figma_template/weather/ff_you_awesome/index.dart';
 import 'package:flutter_figma_template/weather/pages/home/page.dart';
+import 'package:flutter_figma_template/weather/pages/search/page.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,7 +21,10 @@ class WeatherAppBuilder extends StatelessWidget {
         // ),
         textTheme: GoogleFonts.interTextTheme(textTheme),
       ),
-      home: SizedBox(width: 400, child: HomePage()),
+      home: SizedBox(
+        width: 400,
+        child: SearchPage(), //HomePage(),
+      ),
       // YouAwesomePage(
       //   bloc: YouAwesomeBloc(provider: YouAwesomeProvider()),
       // ), //ProfilePage(),
