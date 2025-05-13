@@ -1,7 +1,7 @@
 # flutter_figma_template
 
 ## Weather
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/f28851ae-d79b-497d-a80f-1d5cde07d1bd" />
+![image](https://github.com/user-attachments/assets/3638a645-2006-4fc8-919f-e7770ae53da1)
 
 ## JOBBY
 ### Link https://www.figma.com/design/htsFD3zd7yiluYpNEyhiHU/%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0-%D1%80%D1%8F%D0%B4%D0%BE%D0%BC?node-id=0-1&t=AmNSXLpEtHRE8PHl-0
