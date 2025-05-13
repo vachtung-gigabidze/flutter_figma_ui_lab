@@ -37,78 +37,116 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder<ui.Image>(
-        future: loadImageFromAsset('assets/weather/weather_icon.png'),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return SizedBox(
-              height: 285,
-              width: 438,
-
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 30,
-                    child: SvgPicture.asset('assets/weather/rectangle.svg'),
-                  ),
-                  Positioned(
-                    top: 40,
-                    left: 20,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "19°",
-                          style: TextStyle(
-                            fontSize: 64,
-                            color: Colors.white,
-                            // fontWeight: FontWeight.w300,
-                          ),
-                        ),
-
-                        Text(
-                          "H:24° L:18°",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white54,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        Text(
-                          "Montreal, Canada",
-                          style: TextStyle(fontSize: 17, color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    top: 0,
-                    left: 178,
-                    child: SizedBox(
-                      width: 160,
-                      height: 160,
-                      // color: Colors.black12,
-                      child: CustomPaint(
-                        // size: Size(32, 32),
-                        painter: SpritePainter(
-                          image: snapshot.data!,
-                          frameIndex: 1,
-                          frameWidth: 320,
-                          frameHeight: 320,
-                          columns: 5,
-                          resize: Size(160, 160),
-                        ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.topRight,
+            colors: [Color(0xff2E335A), Color(0xff1C1B33)],
+          ),
+        ),
+        child: FutureBuilder<ui.Image>(
+          future: loadImageFromAsset('assets/weather/weather_icon.png'),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.separated(
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      WeatherCustomPaint(
+                        image: snapshot.data!,
+                        frameIndex: index,
                       ),
-                    ),
+                    ],
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return SizedBox(height: 0);
+                },
+                itemCount: 5,
+              );
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class WeatherCustomPaint extends StatelessWidget {
+  const WeatherCustomPaint({
+    super.key,
+    required this.image,
+    required this.frameIndex,
+  });
+  final ui.Image image;
+  final int frameIndex;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 205,
+      width: 342,
+
+      child: Stack(
+        children: [
+          Positioned(
+            top: 15,
+            child: SvgPicture.asset('assets/weather/rectangle.svg'),
+          ),
+          Positioned(
+            top: 40,
+            left: 20,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "19°",
+                  style: TextStyle(
+                    fontSize: 64,
+                    color: Colors.white,
+                    // fontWeight: FontWeight.w300,
                   ),
-                ],
+                ),
+
+                Text(
+                  "H:24° L:18°",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.white54,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                Text(
+                  "Montreal, Canada",
+                  style: TextStyle(fontSize: 17, color: Colors.white),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            top: 0,
+            left: 178,
+            child: SizedBox(
+              width: 160,
+              height: 160,
+              // color: Colors.black12,
+              child: CustomPaint(
+                // size: Size(32, 32),
+                painter: SpritePainter(
+                  image: image,
+                  frameIndex: frameIndex,
+                  frameWidth: 320,
+                  frameHeight: 320,
+                  columns: 5,
+                  resize: Size(160, 160),
+                ),
               ),
-            );
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
-        },
+            ),
+          ),
+        ],
       ),
     );
   }
